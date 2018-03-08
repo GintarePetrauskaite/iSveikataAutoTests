@@ -18,4 +18,8 @@ public abstract class BasicTest {
         driver.quit();
     }
 
+    protected String getHost() {
+        return "http://localhost:3000";
+    }
+
 }

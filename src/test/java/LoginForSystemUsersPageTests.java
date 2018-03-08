@@ -26,8 +26,8 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     @Before
     public void beforeTest(){
         driver = new FirefoxDriver();
-        driver.get(homePage.getUrl());
         homePage = new HomePage(driver);
+        driver.get(homePage.getUrl());
         loginForSystemUsersPage = new LoginForSystemUsersPage(driver);
         patientRegistrationFormPage = new PatientRegistrationFormPage(driver);
 
@@ -35,9 +35,9 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     }
     @Test
     public void adminLoginSuccessfullyTest() {
-
         loginForSystemUsersPage.loginAsAdmin("root", "123");
-        Assert.assertTrue(driver.getCurrentUrl().contains("http://localhost:3000/#/admin/"));
+//        TODO add wait
+        Assert.assertTrue(driver.getCurrentUrl().contains(getHost() + "/#/admin/"));
     }
     @Test
     public void doctorLoginSuccessfullyTest(){
