@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginForPatientPage extends WebPage {
 
+    private String URL = "http://localhost:3000/#/";
     @FindBy(css = "input[name='patientId']")
     private WebElement patientIdInput;
     @FindBy(css = "input[name='password']")
@@ -21,17 +22,21 @@ public class LoginForPatientPage extends WebPage {
     public LoginForPatientPage(WebDriver driver) {
         super(driver);
     }
-
-    public void LoginAsPatient(String id, String password){
+    public void fillInPatientId(String id){
         patientIdInput.sendKeys(id);
+    }
+    public void fillInPassword(String password){
         passwordInput.sendKeys(password);
+    }
+    public void ClickSubmit(){
         submitButton.click();
     }
-
-
+    public WebElement getErrorMsg(){
+        return errorMsg;
+    }
 
     @Override
     public String getUrl() {
-        return null;
+        return URL;
     }
 }

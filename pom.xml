@@ -16,7 +16,7 @@
         </plugins>
     </build>
     <groupId>SeleniumTest</groupId>
-    <artifactId>DataDrivenTest</artifactId>
+    <artifactId>HealthCareSystetmTests</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>

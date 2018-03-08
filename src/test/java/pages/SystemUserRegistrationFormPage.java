@@ -29,21 +29,30 @@ public class SystemUserRegistrationFormPage extends WebPage {
     @FindBy(css = "input[name='companyName']")
         private WebElement inputCompanyName;
 
-
-
-
-    public void selectSpecialization(String value){
-        new Select(selectSpecialization).selectByValue(value);
-    }
-    public void selectCompanyType(String value){
-        new Select(selectCompanyType).selectByValue(value);
-    }
-
-
     public SystemUserRegistrationFormPage(WebDriver driver) {
         super(driver);
     }
 
+    public void registerNewDoctor(String firstName, String lastName, String specialization){
+        radioButtonDoctor.click();
+        inputFirstName.sendKeys(firstName);
+        inputLastName.sendKeys(lastName);
+        new Select(selectSpecialization).selectByValue(specialization);
+        buttonSubmit.click();
+    }
+    public void registerNewDruggist(String firstName, String lastName, String companyType){
+        radioButtonDruggist.click();
+        inputFirstName.sendKeys(firstName);
+        inputLastName.sendKeys(lastName);
+        new Select(selectCompanyType).selectByValue(companyType);
+        buttonSubmit.click();
+    }
+    public void registerNewAdmin(String firstName, String lastName){
+        radioButtonAdmin.click();
+        inputFirstName.sendKeys(firstName);
+        inputLastName.sendKeys(lastName);
+        buttonSubmit.click();
+    }
 
     @Override
     public String getUrl() {
