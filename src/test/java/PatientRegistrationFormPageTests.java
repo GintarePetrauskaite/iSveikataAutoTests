@@ -29,7 +29,7 @@ public class PatientRegistrationFormPageTests extends BasicTest {
     }
     @Test
     public void patientIsRegisteredSuccessfully() {
-        loginForSystemUsersPage.loginAsAdmin(USERNAME, PASSWORD);
+        loginForSystemUsersPage.login(USERNAME, PASSWORD);
         patientRegistrationFormPage.fillInPatientRegFormCorrectly(PATIENT_ID, FIRSTNAME, LASTNAME);
 
         Assert.assertTrue(patientRegistrationFormPage.GetSuccessMessage().isDisplayed() &&

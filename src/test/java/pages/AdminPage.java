@@ -11,6 +11,8 @@ public class AdminPage extends WebPage {
 
     @FindBy(id = "adminCreateUser")
     private WebElement registerSystemUserLink;
+    @FindBy(id = "adminRegisterUser")
+    private WebElement registerUserButton;
 
     @FindBy(id = "adminBind")
     private WebElement assignDoctorToPatientLink;
@@ -18,8 +20,27 @@ public class AdminPage extends WebPage {
     @FindBy(css = "a[class='#admin/password']")
     private WebElement changePasswordLink;
 
+    @FindBy(id = "logout")
+    private WebElement logout;
+
     public AdminPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void goToSystemUserRegistrationForm(){
+        registerUserButton.click();
+    }
+    public void goToPatientRegistrationForm(){
+        registerPatientLink.click();
+    }
+    public void goToAssignDoctorToPatientForm(){
+        assignDoctorToPatientLink.click();
+    }
+    public void goToChangePasswordForm(){
+        changePasswordLink.click();
+    }
+    public void logout(){
+        logout.click();
     }
 
     @Override

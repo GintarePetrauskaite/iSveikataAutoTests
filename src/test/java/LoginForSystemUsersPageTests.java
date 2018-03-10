@@ -32,10 +32,11 @@ public class LoginForSystemUsersPageTests extends BasicTest {
         patientRegistrationFormPage = new PatientRegistrationFormPage(driver);
 
         homePage.goToLoginForSystemUsers();
+
     }
     @Test
     public void adminLoginSuccessfullyTest() {
-        loginForSystemUsersPage.loginAsAdmin("root", "123");
+        loginForSystemUsersPage.login("root", "123");
 //        TODO add wait
         Assert.assertTrue(driver.getCurrentUrl().contains(getHost() + "/#/admin/"));
     }
