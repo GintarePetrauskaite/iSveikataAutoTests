@@ -1,3 +1,5 @@
+package sveikata;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
