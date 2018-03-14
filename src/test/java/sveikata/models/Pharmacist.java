@@ -1,10 +1,8 @@
-package models;
+package sveikata.models;
 
 import com.github.javafaker.Faker;
 
-public class Pharmacist {
-    private final String firstName;
-    private final String lastName;
+public class Pharmacist extends Person {
     private final String businessType;
     private final String companyName;
     private String username;
@@ -21,18 +19,9 @@ public class Pharmacist {
     }
 
     public Pharmacist(String firstName, String lastName, String businessType, String companyName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(firstName, lastName);
         this.businessType = businessType;
         this.companyName = companyName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
     public String getBusinessType() {
@@ -59,13 +48,4 @@ public class Pharmacist {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Pharmacist{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

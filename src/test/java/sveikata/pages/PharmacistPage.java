@@ -1,4 +1,4 @@
-package pages;
+package sveikata.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PharmacistPage extends WebPage {
 
-    private String URL = "http://localhost:3000/#/druggist";
+    private String URL = "http://localhost:8080/#/druggist";
 
     public PharmacistPage(WebDriver driver) {
         super(driver);

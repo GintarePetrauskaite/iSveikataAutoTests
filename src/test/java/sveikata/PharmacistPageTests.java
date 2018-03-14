@@ -1,12 +1,14 @@
+package sveikata;
+
 import com.github.javafaker.Faker;
-import models.Credentials;
-import models.Pharmacist;
+import sveikata.models.Credentials;
+import sveikata.models.Pharmacist;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.*;
+import sveikata.pages.*;
 
 public class PharmacistPageTests extends BasicTest {
 
@@ -22,7 +24,7 @@ public class PharmacistPageTests extends BasicTest {
     public void beforeTest(){
         driver = new FirefoxDriver();
         faker = new Faker();
-        //create pages
+        //create sveikata.pages
         homePage = new HomePage(driver);
         loginForSystemUsersPage = new LoginForSystemUsersPage(driver);
         adminPage = new AdminPage(driver);

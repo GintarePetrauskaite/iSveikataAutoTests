@@ -1,12 +1,14 @@
+package sveikata;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.HomePage;
-import pages.LoginForPatientPage;
-import pages.PatientPage;
+import sveikata.pages.HomePage;
+import sveikata.pages.LoginForPatientPage;
+import sveikata.pages.PatientPage;
 
 public class LoginForPatientPageTests extends BasicTest {
 
@@ -32,7 +34,7 @@ public class LoginForPatientPageTests extends BasicTest {
         loginForPatientPage.fillInPassword(password);
         loginForPatientPage.ClickSubmit();
 
-        Assert.assertTrue(patientPage.getLoggedInPatientNameText().isDisplayed());
+        Assert.assertTrue(patientPage.getLoggedInPatientTitle().isDisplayed());
     }
     @Test
     public void patientRegistrationWithoutData(){

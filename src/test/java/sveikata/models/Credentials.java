@@ -1,4 +1,4 @@
-package models;
+package sveikata.models;
 
 public class Credentials {
 

@@ -1,6 +1,6 @@
-package pages;
+package sveikata.pages;
 
-import models.Credentials;
+import sveikata.models.Credentials;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginForSystemUsersPage extends WebPage {
 
-    private static String URL = "http://localhost:3000/#/vartotojams";
+    private static String URL = "http://localhost:8080/#/vartotojams";
 
     public LoginForSystemUsersPage(WebDriver driver) {
         super(driver);

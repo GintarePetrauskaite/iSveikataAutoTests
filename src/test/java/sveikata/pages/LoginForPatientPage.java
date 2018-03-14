@@ -1,4 +1,4 @@
-package pages;
+package sveikata.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginForPatientPage extends WebPage {
 
-    private String URL = "http://localhost:3000/#/";
+    private String URL = "http://localhost:8080/#/";
     @FindBy(css = "input[name='patientId']")
     private WebElement patientIdInput;
     @FindBy(css = "input[name='password']")
@@ -33,6 +33,12 @@ public class LoginForPatientPage extends WebPage {
     }
     public WebElement getErrorMsg(){
         return errorMsg;
+    }
+
+    public void login(String id, String password){
+        patientIdInput.sendKeys(id);
+        passwordInput.sendKeys(password);
+        submitButton.click();
     }
 
     @Override

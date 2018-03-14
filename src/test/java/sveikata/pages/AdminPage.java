@@ -1,4 +1,4 @@
-package pages;
+package sveikata.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +8,8 @@ public class AdminPage extends WebPage {
 
     @FindBy(id = "adminCreatePatient")
     private WebElement registerPatientLink;
+    @FindBy(id = "adminRegisterPatient")
+    private WebElement registerPatientButton;
 
     @FindBy(id = "adminCreateUser")
     private WebElement registerSystemUserLink;
@@ -31,7 +33,7 @@ public class AdminPage extends WebPage {
         registerUserButton.click();
     }
     public void goToPatientRegistrationForm(){
-        registerPatientLink.click();
+        registerPatientButton.click();
     }
     public void goToAssignDoctorToPatientForm(){
         assignDoctorToPatientLink.click();

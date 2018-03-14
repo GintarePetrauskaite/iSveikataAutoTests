@@ -1,7 +1,8 @@
-package pages;
+package sveikata.pages;
 
-import models.Credentials;
-import models.Pharmacist;
+import sveikata.models.Credentials;
+import sveikata.models.Person;
+import sveikata.models.Pharmacist;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SystemUserRegistrationFormPage extends WebPage {
 
-    private static String URL = "http://localhost:3000/#/admin/create/user";
+    private static String URL = "http://localhost:8080/#/admin/create/user";
 
     @FindBy(css = "input[value='doctor']")
     private WebElement radioButtonDoctor;
@@ -76,12 +77,13 @@ public class SystemUserRegistrationFormPage extends WebPage {
                 pharmacist.getFirstName());
     }
 
-    public void registerNewAdmin(String firstName, String lastName){
+    public void registerNewAdmin(Person person){
         radioButtonAdmin.click();
-        inputFirstName.sendKeys(firstName);
-        inputLastName.sendKeys(lastName);
+        inputFirstName.sendKeys(person.getFirstName());
+        inputLastName.sendKeys(person.getLastName());
         buttonSubmit.click();
     }
+
     public void logout(){
         logout.click();
     }

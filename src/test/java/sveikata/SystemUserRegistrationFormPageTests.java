@@ -1,17 +1,19 @@
+package sveikata;
+
 import com.github.javafaker.Faker;
-import models.Credentials;
-import models.Pharmacist;
+import sveikata.models.Credentials;
+import sveikata.models.Person;
+import sveikata.models.Pharmacist;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.*;
+import sveikata.pages.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 import static org.hamcrest.CoreMatchers.containsString;
@@ -40,7 +42,7 @@ public class SystemUserRegistrationFormPageTests extends BasicTest {
 
         driver.get(homePage.getUrl());
         homePage.goToLoginForSystemUsers();
-        loginForSystemUsersPage.login("root", "123");
+        loginForSystemUsersPage.login(Credentials.ROOT);
         adminPage.goToSystemUserRegistrationForm();
     }
     @Test
@@ -48,7 +50,7 @@ public class SystemUserRegistrationFormPageTests extends BasicTest {
         systemUserRegistrationFormPage.registerNewDoctor(faker.firstName(), faker.lastName(), faker.country());
         Assert.assertTrue(systemUserRegistrationFormPage.getSuccessMsg().isDisplayed()
                 && systemUserRegistrationFormPage.getSuccessMsg()
-                .getText().equals("Naujo vartotojo paskyra sėkmingai sukurta."));
+                .getText().equals(CREATION_SUCCESS_MESSAGE));
     }
     @Test
     public void newDoctorNotRegisteredWithEmptyFields(){
@@ -60,15 +62,15 @@ public class SystemUserRegistrationFormPageTests extends BasicTest {
     }
     @Test
     public void registerNewAdminSuccessfully(){
-        systemUserRegistrationFormPage.registerNewAdmin("Newww", "Admin");
+        systemUserRegistrationFormPage.registerNewAdmin(Person.createPerson());
         Assert.assertTrue(systemUserRegistrationFormPage.getSuccessMsg().isDisplayed()
                 && systemUserRegistrationFormPage.getSuccessMsg()
-                .getText().contains("Naujo vartotojo paskyra sėkmingai sukurta."));
+                .getText().contains(CREATION_SUCCESS_MESSAGE));
     }
     @Test
     public void registerMultiplePharmacists() {
         final List<Pharmacist> users = new ArrayList<>();
-        IntStream.range(0, 3)
+        IntStream.range(0, 10)
                 .mapToObj(i -> Pharmacist.createPharmacist())
                 .forEach(user -> {
                     Credentials cr =
@@ -77,7 +79,6 @@ public class SystemUserRegistrationFormPageTests extends BasicTest {
                                     user.getLastName(),
                                     user.getBusinessType(),
                                     user.getCompanyName());
-                    driver.manage().timeouts().implicitlyWait(300, TimeUnit.MILLISECONDS);
                     assertThat(systemUserRegistrationFormPage.getSuccessMsg().isDisplayed(), is(true));
                     assertThat(systemUserRegistrationFormPage.getSuccessMsg().getText(), is(CREATION_SUCCESS_MESSAGE));
                     user.setPassword(cr.getPassword());

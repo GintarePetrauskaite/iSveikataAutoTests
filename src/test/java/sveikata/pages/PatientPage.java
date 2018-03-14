@@ -1,4 +1,4 @@
-package pages;
+package sveikata.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,9 +12,15 @@ public class PatientPage extends WebPage {
     }
     @FindBy(css = "li[navbar-text] > h4")
     private WebElement loggedInPatientNameText;
+    @FindBy(id = "logout")
+    private WebElement logout;
 
-    public WebElement getLoggedInPatientNameText(){
+    public WebElement getLoggedInPatientTitle(){
         return loggedInPatientNameText;
+    }
+
+    public void clickLogout(){
+        logout.click();
     }
 
     @Override

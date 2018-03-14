@@ -1,4 +1,4 @@
-package utils;
+package sveikata;
 
 public class PatientPageTests {
 }

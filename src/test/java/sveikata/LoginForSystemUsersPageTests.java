@@ -1,12 +1,15 @@
+package sveikata;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.HomePage;
-import pages.LoginForSystemUsersPage;
-import pages.PatientRegistrationFormPage;
+import sveikata.models.Credentials;
+import sveikata.pages.HomePage;
+import sveikata.pages.LoginForSystemUsersPage;
+import sveikata.pages.PatientRegistrationFormPage;
 
 import java.util.Random;
 
@@ -17,11 +20,6 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     private HomePage homePage;
     private LoginForSystemUsersPage loginForSystemUsersPage;
     private PatientRegistrationFormPage patientRegistrationFormPage;
-
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "123";
-    private Random randomData = new Random();
-    private String inputData = "SysUser" + randomData.nextInt();
 
     @Before
     public void beforeTest(){
@@ -36,7 +34,7 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     }
     @Test
     public void adminLoginSuccessfullyTest() {
-        loginForSystemUsersPage.login("root", "123");
+        loginForSystemUsersPage.login(Credentials.ROOT);
 //        TODO add wait
         Assert.assertTrue(driver.getCurrentUrl().contains(getHost() + "/#/admin/"));
     }

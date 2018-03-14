@@ -1,4 +1,4 @@
-package pages;
+package sveikata.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,8 +15,22 @@ public class DoctorWorkStatisticsPage extends WebPage {
     private WebElement endDateInput;
     @FindBy(id = "showDoctorStatisticButton")
     private WebElement submitBtn;
+    @FindBy(css = "div > svg.recharts-surface")
+    private WebElement chart;
 
+    public void inputStartDate(String date){
+        startDateInput.sendKeys(date);
+    }
+    public void inputEndDate(String date){
+        endDateInput.sendKeys(date);
+    }
+    public void clickSubmitButton(){
+        submitBtn.click();
+    }
 
+    public WebElement getChart() {
+        return chart;
+    }
 
     @Override
     public String getUrl() {
