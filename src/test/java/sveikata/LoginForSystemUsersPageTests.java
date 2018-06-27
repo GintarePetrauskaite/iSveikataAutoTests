@@ -40,7 +40,7 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     }
     @Test
     public void doctorLoginSuccessfullyTest(){
-
+            // Trololo
     }
 
     @After
