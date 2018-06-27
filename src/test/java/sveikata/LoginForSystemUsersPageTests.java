@@ -46,5 +46,6 @@ public class LoginForSystemUsersPageTests extends BasicTest {
     @After
     public void afterTest(){
         driver.close();
+        driver.quit();
     }
 }
